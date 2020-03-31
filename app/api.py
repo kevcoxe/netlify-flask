@@ -3,6 +3,12 @@ from app import app
 from app.models import db, Stuff
 
 
+@app.route('/', methods=['GET'])
+def home():
+    stuff = [s.json() for s in Stuff.query.all()]
+    return render_template('home.html', stuff=stuff)
+
+
 @app.route('/api/get/stuff', methods=['GET'])
 def api_get_stuff():
     stuff = [s.json() for s in Stuff.query.all()]
