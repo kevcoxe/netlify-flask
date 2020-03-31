@@ -16,6 +16,9 @@ def api_get_stuff():
     return jsonify(stuff)
 
 
+# NOTE this will not be used on netlify
+# as far as I know post requests do not work
+# with Flask-freeze
 @app.route('/api/add/stuff', methods=['POST'])
 def api_add_stuff():
     name = request.json.get('name')
