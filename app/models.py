@@ -1,13 +1,13 @@
 from flask_sqlalchemy import SQLAlchemy
 from app import app
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 db = SQLAlchemy(app)
 
 class Stuff(db.Model):
     __tablename__ = 'stuff'
 
-    id = db.Column('student_id', db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(255))
     age = db.Column(db.Integer)
 
