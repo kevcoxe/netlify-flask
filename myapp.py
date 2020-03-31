@@ -1,12 +1,26 @@
 from flask import Flask, render_template, jsonify, request
-app = Flask(__name__)
+from flask_sqlalchemy import SQLAlchemy
 
-stuff = [
-    {
-        'name': 'Kevin',
-        'age': 0000
-    }
-]
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.sqlite3'
+db = SQLAlchemy(app)
+
+
+class Stuff(db.Model):
+    __tablename__ = 'stuff'
+
+    id = db.Column('student_id', db.Integer, primary_key = True)
+    name = db.Column(db.String(255))
+    age = db.Column(db.Integer)
+
+    def json(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'age': self.age
+        }
+
+db.create_all()
 
 
 @app.route('/', methods=['GET'])
@@ -16,6 +30,7 @@ def home():
 
 @app.route('/api/get/stuff', methods=['GET'])
 def api_get_stuff():
+    stuff = [s.json() for s in Stuff.query.all()]
     print('getting stuff: {}'.format(stuff))
     return jsonify(stuff)
 
@@ -25,10 +40,15 @@ def api_add_stuff():
     name = request.json.get('name')
     age = request.json.get('age')
 
-    stuff.append({'name': name, 'age': age})
+    new_stuff = Stuff(
+        name=name,
+        age=age
+    )
+    db.session.add(new_stuff)
+    db.session.commit()
 
-    print('adding stuff: {}'.format(stuff))
-    return jsonify(stuff)
+    print('adding stuff: {}'.format(new_stuff.json()))
+    return jsonify(new_stuff.json())
 
 
 if __name__ == '__main__':
