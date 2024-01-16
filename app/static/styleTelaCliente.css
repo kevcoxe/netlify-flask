@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* header inicio*/
+  header {
+    background-color: #03264c;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header img {
+    width: 250px; 
+    height: auto;
+    margin-left: 5%;
+  }
+  
+  #user-info {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    height: 50px;
+    width: 350px;
+    position: relative;
+    top: -10px;
+  }
+  
+  
+  #user-info img {
+    border-radius: 50%;
+    margin-left: 5px;
+    width: 40px; 
+    height: 40px; 
+    position: absolute;
+    top: 5px;
+  }
+
+  #nome-user{
+    color: black;
+    position: absolute;
+    top: -8px;
+    left: 20%;
+  }
+
+  #email-user{
+    color: black;
+    position: absolute;
+    top: 12px;
+    left: 20%;
+   
+  }
+  
+  #user-info input {
+    margin-right: 10px;
+    padding: 5px;
+  }
+
+
+
+
+
+
+  
+    /* header fim*/
+
+
+
+    /* menu inicio*/
+  .container {
+    display: flex;
+    height: 100%;
+  }
+  
+  .left-menu {
+    background-color: #e4e4e4;
+    width: 350px; 
+    height: 100vh; 
+    padding: 10px;
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    border-right: 1px solid #ccc; 
+}
+
+.left-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-menu li {
+    margin-bottom: 15px; 
+    width: 100%; 
+    background-color: white;
+}
+
+.left-menu a {
+    text-decoration: none;
+    color: #333; 
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px solid #ccc; 
+    padding: 10px;
+    display: block;
+
+}
+
+.left-menu a:hover {
+  background-color: rgb(0, 0, 0); 
+  color: white;
+  transition: 1s;
+}
+  .content {
+    flex: 1;
+  }
+
+  .ativo{
+    background-color: black;
+}
+
+/* menu fim*/
+
+/* form inicio*/
+
+.page-section {
+    padding: 20px;
+  }
+  
+  .form-container img {
+    border-radius: 50%;
+    max-width: 200px;
+    margin-bottom: 50px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label,
+form input {
+    margin-bottom: 50px;
+    margin-left: 30px;
+}
+
+form label {
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+form input {
+    width: 253px;
+    padding: 10px;
+}
+
+.campo-dados-1,
+.campo-dados-2 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-right: 15px;
+}
+
+.campo-dados-2 + button {
+    margin-top: 10px;
+}
+
+button {
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
