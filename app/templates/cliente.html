@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleCliente.css') }}">
+</head>
+<body>
+
+    <header>
+        <img src="{{ url_for('static', filename='image/logo-footer.png') }}" alt="Logo">
+        <div id="user-info">
+          <img src="{{ url_for('static', filename='image/imagem-perfil.png') }}" alt="Imagem">
+          <P id="nome-user">{{ current_user.name }}</P>
+          <p id="email-user">{{ current_user.email }}</p>
+        </div>
+
+      </header>
+
+
+      <div class="container">
+        <nav class="left-menu">
+          <ul>
+            <li><a class="ativo" href="{{ url_for('home') }}">Meus Clientes</a></li>
+            <li><a href="{{url_for('novoCliente')}}">Novo Cliente</a></li>
+          </ul>
+        </nav>
+    
+        <main class="content">
+
+             <div id="dados-usuario">
+                <img src="{{ url_for('static', filename='image/imagem-perfil.png') }}" alt="Profile Image" class="dados-image">
+                <div class="info">
+                  <form action="">
+                    <p><strong>Nome:</strong> <span id="nome"></span>{{ cliente.name }}</p>
+                    <p><strong>Numero:</strong> <span id="email"></span>{{ cliente.numero }}</p>
+                    <p><strong>Cidade:</strong> <span id="cidade"></span>{{ cliente.cidade }}</p>
+                    <p><strong>Profissão:</strong> <span id="profissao"></span>{{ cliente.profissao }}</p>
+                  
+                    <p><strong>Interesses:</strong></p>
+                    <div class="center">
+                      <div class="checkbox-container">
+                        <label class="checkbox-label" for="tecnicoAdministracao"><input type="checkbox" id="tecnicoAdministracao" name="cursos" value="TecnicoAdministracao"><span>Técnico em Administração</span></label>
+                        <label class="checkbox-label" for="tecnicoContabilidade"><input type="checkbox" id="tecnicoContabilidade" name="cursos" value="TecnicoContabilidade"><span>Técnico em Contabilidade</span></label>
+                        <label class="checkbox-label" for="tecnicoEnfermagem"><input type="checkbox" id="tecnicoEnfermagem" name="cursos" value="TecnicoEnfermagem"><span>Técnico em Enfermagem</span></label>
+                        <label class="checkbox-label" for="tecnicoGuiaDeTurismoReginal"><input type="checkbox" id="tecnicoGuiaDeTurismoReginal" name="cursos" value="TecnicoGuiaDeTurismoReginal"><span>Técnico em Guia de Turismo Reginal</span></label>
+                        <label class="checkbox-label" for="tecnicoInformatica"><input type="checkbox" id="tecnicoInformatica" name="cursos" value="TecnicoInformatica"><span>Técnico em Informática</span></label>
+                        <label class="checkbox-label" for="tecnicoMarketing"><input type="checkbox" id="tecnicoMarketing" name="cursos" value="TecnicoMarketing"><span>Técnico em Marketing</span></label>
+                        <label class="checkbox-label" for="tecnicoRecursosHumanos"><input type="checkbox" id="tecnicoRecursosHumanos" name="cursos" value="TecnicoRecursosHumanos"><span>Técnico em Recursos Humanos</span></label>
+                      </div>                 
+                    </div>
+                  
+                    <p><strong>Fase de Venda:</strong></p>
+                    <div class="center">
+                      <input type="radio" id="prosperacao" name="faseDaVenda" value="Prosperacao">
+                      <label class="radio-label" for="prosperacao">Prospeçcão</label><br>
+                      <input type="radio" id="negociacao" name="faseDaVenda" value="Negociacao">
+                      <label class="radio-label" for="negociacao">Negociação</label><br>
+                      <input type="radio" id="finalizado" name="faseDaVenda" value="Finalizado">
+                      <label class="radio-label" for="finalizado">Finalizado</label>
+                      <input type="submit" value="Confirmar">
+                    </div>
+                  </form>
+                </div>
+             </div>      
+
+
+             <div id="whats-link">
+
+                
+
+
+             </div>
+        </main>
+      </div>
+
+    </body>
+    </html>
