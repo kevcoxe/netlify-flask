@@ -1,15 +1,144 @@
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-        <div>
-          <h1>Master</h1>
-          <p>I did not realize what was in the previous html page, face palm</p>
+{% if current_user.is_authenticated %}
+  
+  {% if current_user.is_adm() %}
 
-          <h3>Stuff</h3>
-          {% for s in stuff %}
-            <p>{{ s.name }}
+  <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cliente</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styleMeusClientes.css') }}">
+    </head>
+    <body>
+    
+        <header>
+            <img src="{{ url_for('static', filename='image/logo-footer.png') }}" alt="Logo">
+            <div id="user-info">
+              <img src="{{ url_for('static', filename='image/imagem-perfil.png') }}" alt="Imagem">
+              <P id="nome-user">Nome : {{ current_user.name }}</P>
+              <p id="email-user">Email : {{ current_user.email }}</p>
+            </div>
+    
+          </header>
+    
+    
+          <div id="filtro-container">
+            <label for="filtro">Filtrar por:</label>
+            <select id="filtro" onchange="filtrarPor()">
+              <option value="todos">Todos</option>
+              <option value="nome">Nome</option>
+              <option value="email">Email</option>
+              <option value="cidade">Cidade</option>
+              <option value="profissao">Profissão</option>
+            </select>
+          </div>
+    
+    
+          <div class="container">
+            <nav class="left-menu">
+              <ul>
+                <li><a class="ativo" href="{{ url_for('home') }}">Usuarios Cadastrados</a></li>
+              </ul>
+            </nav>
+        
+            <main class="content">
+    
+            {% for user in users %}    
+  
+                {% if user.email != current_user.email %}
+                    
+                    <div class="profile-block">
+                        <img src="{{ url_for('static', filename='image/batata.png') }}" alt="Profile Image" class="profile-image">
+                        <div class="info">
+                          <p><strong>Nome:</strong> <span id="nome"></span>{{ user.name }}</p>
+                          <p><strong>Numero:</strong> <span id="email"></span>{{ user.email }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+              
           {% endfor %}
+              
+          </main>
         </div>
-    </body>
-</html>
+      
+  
+        <script src="filtro.js"></script>
+  
+      </body>
+  </html>
+  {% else %}
+
+  <html lang="pt-br">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Cliente</title>
+          <link rel="stylesheet" href="{{ url_for('static', filename='css/styleMeusClientes.css') }}">
+      </head>
+      <body>
+      
+          <header>
+              <img src="{{ url_for('static', filename='image/logo-footer.png') }}" alt="Logo">
+              <div id="user-info">
+                <img src="{{ url_for('static', filename='image/imagem-perfil.png') }}" alt="Imagem">
+                <P id="nome-user">Nome : {{ current_user.name }}</P>
+                <p id="email-user">Email : {{ current_user.email }}</p>
+              </div>
+      
+            </header>
+      
+      
+            <div id="buttons">
+              <label for="filtro">Filtrar por:</label>
+              <button class="btn" onclick="filterObjects('all')">Todos</button>
+              <button class="btn" onclick="filterObjects('Encantado')">Encantado</button>
+              <button class="btn" onclick="filterObjects('Roca')">Roca</button>
+            </div>
+      
+      
+            <div class="container">
+              <nav class="left-menu">
+                <ul>
+                  <li><a class="ativo" href="{{ url_for('home') }}">Meus Clientes</a></li>
+                  <li><a href="{{url_for('novoCliente')}}">Novo Cliente</a></li>
+                </ul>
+              </nav>
+          
+              <main class="content">
+      
+              {% for cliente in current_user.clientes %}    
+
+                <div class="objects">
+                  <div class="box {{ cliente.cidade }}">
+                    <a href="{{ url_for('cliente', nome_cliente=cliente.name) }}">
+                      <div class="profile-block">                   
+                          <img src="{{ url_for('static', filename='image/batata.png') }}" alt="Profile Image" class="profile-image">
+                          <div class="info">
+                            <p><strong>Nome:</strong> <span id="nome"></span>{{ cliente.name }}</p>
+                            <p><strong>Numero:</strong> <span id="email"></span>{{ cliente.numero }}</p>
+                            <p><strong>Cidade:</strong> <span id="cidade"></span>{{ cliente.cidade }}</p>
+                            <p><strong>Profissão:</strong> <span id="profissao"></span>{{ cliente.profissao }}</p>
+                          </div>
+                      </div>
+                    </a>
+                  </div> 
+                </div>
+            {% endfor %}
+                
+            </main>
+          </div>
+    
+          <script src="{{ url_for('static', filename='js/Scripts.js')}}"></script>
+    
+        </body>
+
+  </html>
+  
+  {% endif %}
+
+{% else %}
+    <div>
+        <h1>Visitante</h1>
+        <p>Esste texto aparece caso você não esteja logado.</p>
+    </div>
+{% endif %}
