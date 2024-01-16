@@ -43,7 +43,6 @@ def login():
 
 @app.route('/', methods=['POST', 'GET'])
 def home():
-    navegador.get('https://web.whatsapp.com/send?phone=555199187655')
     users = User.query.all()
     return render_template('home.html', users=users)
 
