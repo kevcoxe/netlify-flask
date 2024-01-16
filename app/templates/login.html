@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Lume </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleLogin.css') }}">
+</head>
+
+<body>
+
+    <main>
+
+        <div id="img-logo"></div>
+
+        <div class="form-container">
+
+            <form action="" method="post">
+                <div class="formulario">
+                    <p>Nome Completo</p>
+                    <input type="email" name="email" required placeholder="Insira seu email">
+                </div><!--formulario 1-->
+                <div class="formulario">
+                    <p>Senha</p>
+                    <input type="password" name="password" required placeholder="*******">
+                </div><!--formulario 2-->
+                <div class="formulario">
+                    <input type="submit" value="Logar">
+                </div><!--formulario 4-->
+            </form>
+        </div><!--form-container-->
+
+    </main>
+
+</body>
+
+</html>
