@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from app import app
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:6egDG6af-DD6aHC6-F3gEEAd1BC-4HEC@roundhouse.proxy.rlwy.net:50355/flask_login'
 db = SQLAlchemy(app)
 
 class Stuff(db.Model):
