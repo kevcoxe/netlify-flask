@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleTelaCliente.css') }}">
+</head>
+<body>
+
+    <header>
+        <img src="{{ url_for('static', filename='image/logo-footer.png') }}" alt="Logo">
+        <div id="user-info">
+          <img src="{{ url_for('static', filename='image/imagem-perfil.png') }}" alt="Imagem">
+          <P id="nome-user">Nome : {{ current_user.name }}</P>
+          <p id="email-user">Email : {{ current_user.email }}</p>
+        </div>
+      </header>
+
+      <div class="container">
+        <nav class="left-menu">
+          <ul>
+            <li><a href="{{url_for('home')}}">Meus Clientes</a></li>
+            <li><a class="ativo" href="{{url_for('novoCliente')}}">Novo Cliente</a></li>
+          </ul>
+        </nav>
+    
+        <main class="content">
+
+    
+          <div class="page-section ">
+           
+            <div class="form-container">
+              <img src="{{ url_for('static', filename='image/imagem-perfil.png') }}" alt="Foto Redonda" class="round-image">
+              <form method="post">
+                <div class="campo-dados-1">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="number">Número:</label>
+                <input type="tel" id="number" name="number" required>
+                </div>
+    
+                <div class="campo-dados-2">
+                <label for="city">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" required>
+                
+                <label for="profession">Profissão:</label>
+                <input type="text" id="profissao" name="profissao" required>
+                </div>
+                
+                <button type="submit">Enviar</button>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+    
+    </body>
+    </html>
