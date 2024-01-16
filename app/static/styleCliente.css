@@ -1,0 +1,272 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* header inicio*/
+  header {
+    background-color: #03264c;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header img {
+    width: 250px; 
+    height: auto;
+    margin-left: 5%;
+  }
+  
+  #user-info {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    height: 50px;
+    width: 350px;
+    position: relative;
+    top: -10px;
+  }
+  
+  
+  #user-info img {
+    border-radius: 50%;
+    margin-left: 5px;
+    width: 40px; 
+    height: 40px; 
+    position: absolute;
+    top: 5px;
+  }
+
+  #nome-user{
+    color: black;
+    position: absolute;
+    top: -8px;
+    left: 20%;
+  }
+
+  #email-user{
+    color: black;
+    position: absolute;
+    top: 12px;
+    left: 20%;
+   
+  }
+  
+ 
+  
+  #filtro-container {
+    color: white;
+    top: 64px;
+    right: 10px;
+    position: absolute;
+}
+
+
+  
+  #filtro {
+    margin-top: 10px;
+    padding: 5px;
+  }
+
+    /* header fim*/
+
+
+
+    /* menu inicio*/
+  .container {
+    display: flex;
+    height: 100%;
+  }
+  
+  .left-menu {
+    background-color: #e4e4e4;
+    width: 350px; 
+    height: 100vh; 
+    padding: 10px;
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    border-right: 1px solid #ccc; 
+}
+
+.left-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-menu li {
+    margin-bottom: 15px; 
+    width: 100%; 
+    background-color: white;
+}
+
+.left-menu a {
+    text-decoration: none;
+    color: #333; 
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px solid #ccc; 
+    padding: 10px;
+    display: block;
+
+}
+
+.left-menu a:hover {
+    background-color: rgb(0, 0, 0); 
+    color: white;
+    transition: 1s;
+
+}
+.content {
+    flex: 1;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+.ativo{
+    background-color: black;
+    color: white;
+
+}
+
+/* menu fim*/
+
+
+/* main inicio*/
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+#dados-usuario {
+  flex: 0 0 350px; 
+  margin: 10px; 
+  padding: 15px;
+  border: 2px solid #333;
+  border-radius: 15px;
+}
+  
+.dados-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+.info {
+  font-size: 18px;
+  margin-top: 30px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+
+input[type="radio"] {
+    display: none; 
+}
+
+label {
+    font-family: Arial, sans-serif; 
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px; 
+    border: 2px solid #3498db; 
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+
+input[type="radio"]:checked + label {
+    background-color: #3498db;
+    color: white;
+}
+
+
+label:hover {
+    background-color: #f2f2f2;
+}
+
+
+input[type="submit"] {
+    background-color: #03264c; 
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border: none; 
+    cursor: pointer;
+    border-radius: 13px;
+    display: block; 
+    margin-top: 15px; 
+    margin-bottom: 10px
+}
+
+
+input[type="submit"]:hover {
+    transition: 1s;
+    background-color: #0d70e0; 
+}
+
+.center {
+  display: grid;
+  justify-content: center;
+}
+
+#whats-link {
+  flex: 1; 
+  max-width: 1080px; 
+  margin: 10px; 
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 100%; 
+}
+
+.checkbox-label {
+  font-family: Arial, sans-serif;
+  display: inline-block;
+  margin-right: 10px; 
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #3498db;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.checkbox-label:hover {
+  background-color: #f2f2f2;
+}
+
+.checkbox-label input {
+  margin-right: 5px; 
+}
+
+
+.radio-label:hover {
+  background-color: #f2f2f2;
+}
+/* main fim*/
